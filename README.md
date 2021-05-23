@@ -8,3 +8,6 @@ All assignments are based on the [Capacitated Facility Location](https://en.wiki
 2. Greedy algorithm in C++.
 3. Complete enumeration in C++.
 4. Backtracking and Branch&Bound in C++.
+
+# Final project
+Final project of this course has [its own repository](https://github.com/vash96/MIFAP/).
