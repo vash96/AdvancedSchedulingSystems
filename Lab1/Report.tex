@@ -1,0 +1,179 @@
+\documentclass{article}
+\usepackage{float}
+
+\title{Lab Session n. 1: report}
+\author{Brian Riccardi \\ mat.130453 \\ riccardi.brian@spes.uniud.it}
+\date{}
+
+\newcommand{\UNK}{\texttt{==UNKNOWN==}}
+\newcommand{\ERR}{\texttt{===ERROR===}}
+\newcommand{\sol}[1]{#1}
+\newcommand{\opt}[1]{\textbf{#1}}
+\newcommand{\proved}[1]{\textbf{\underline{#1}}}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+In this report I will provide the results I achieved modeling through three different solvers.
+I will use \sol{normal} text to represent a partial solution, \opt{bold} text to represent optimal
+solutions and \proved{bold and underlined} text to represent optimal and proved solutions.
+
+I tried different \texttt{search\_strategies} and I kept the best ones: the strategies used are annotated
+in the \texttt{.mzn} models.
+\ \\
+
+Lastly, I want to point out that the \texttt{Gecode} solver in testcase \texttt{wlp-100.dzn} in both
+assignments 3 and 4, ran out of memory (8 GB of RAM and 10 GB of SWAP): I hardly believe that the solver has 
+memory leak issues and I honestly think that the problem relies in my model; nevertheless it could be interesting
+investigating more.
+
+\section{Technical aspects}
+The machine used has:
+
+\begin{description}
+    \item[CPU:] Intel i5-8250U @ 3.40 GHz
+    \item[RAM:] 8 GB
+    \item[Operating System:] Linux Fedora 33
+\end{description}
+\ \\
+\ \\
+Tests were done with 3 minutes runtime (option \texttt{--time-limit 180000}).
+
+\section{Assignment 3}
+
+\begin{table}[H]
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            \textbf{Instance}&\textbf{Gecode 6.3.0}&\textbf{Chuffed 0.10.4}&\textbf{Coin-BC 2.10.5}  \\
+            \hline
+            wlp-1         &   \proved{1931}   &     \proved{1931}   &   \proved{1931}   \\
+            \hline
+            wlp-2         &   \proved{1891}   &     \proved{1891}   &   \proved{1891}   \\
+            \hline
+            wlp-3         &   \sol{4426}      &     \opt{4358}      &   \proved{4358}   \\
+            \hline
+            wlp-4         &   \sol{6503}      &     \sol{4308}      &   \proved{4246}   \\
+            \hline
+            wlp-5         &   \sol{5190}      &     \sol{3827}      &   \proved{3502}   \\
+            \hline
+            wlp-6         &   \sol{10930}     &     \sol{8465}      &   \proved{4108}   \\
+            \hline
+            wlp-7         &   \sol{6849}      &     \sol{5280}      &   \proved{4276}   \\
+            \hline
+            wlp-8         &   \sol{12467}     &     \sol{6633}      &   \proved{4888}   \\
+            \hline
+            wlp-9         &   \sol{11951}     &     \sol{12653}     &   \proved{7959}   \\
+            \hline
+            wlp-10        &   \sol{12517}     &     \sol{12371}     &   \proved{8893}   \\
+            \hline
+            wlp-12        &   \sol{13900}     &     \sol{10999}     &   \proved{4890}   \\
+            \hline
+            wlp-15        &   \sol{26951}     &     \sol{25412}     &   \proved{14881}  \\
+            \hline
+            wlp-20        &   \sol{31073}     &     \sol{27733}     &   \proved{9727}   \\
+            \hline
+            wlp-30        &   \sol{45778}     &     \sol{47793}     &   \proved{11964}  \\
+            \hline
+            wlp-50        &   \sol{71237}     &     \sol{72126}     &   \proved{15164}  \\
+            \hline
+            wlp-100       &   \ERR            &     \sol{126018}    &   \proved{20848}  \\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{table}
+
+\section{Assignment 4}
+
+\begin{table}[H]
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            \textbf{Instance}&\textbf{Gecode 6.3.0}&\textbf{Chuffed 0.10.4}&\textbf{Coin-BC 2.10.5}  \\
+            \hline
+            wlp-1         &     \proved{1931}   &   \proved{1931}   &   \proved{1931}   \\
+            \hline
+            wlp-2         &     \proved{1891}   &   \proved{1891}   &   \proved{1891}   \\
+            \hline
+            wlp-3         &     \proved{4553}   &   \proved{4553}   &   \proved{4553}   \\
+            \hline
+            wlp-4         &     \proved{4366}   &   \proved{4366}   &   \proved{4366}   \\
+            \hline
+            wlp-5         &     \proved{3530}   &   \proved{3530}   &   \proved{3530}   \\
+            \hline
+            wlp-6         &     \proved{4108}   &   \proved{4108}   &   \proved{4108}   \\
+            \hline
+            wlp-7         &     \proved{4429}   &   \opt{4429}      &   \proved{4429}   \\
+            \hline
+            wlp-8         &     \proved{4961}   &   \opt{4961}      &   \proved{4961}   \\
+            \hline
+            wlp-9         &     \sol{8905}      &   \sol{8656}      &   \proved{8145}   \\
+            \hline
+            wlp-10        &     \sol{10443}     &   \sol{9699}      &   \proved{9070}   \\
+            \hline
+            wlp-12        &     \sol{6815}      &   \sol{5512}      &   \proved{5379}   \\
+            \hline
+            wlp-15        &     \sol{21766}     &   \sol{19381}     &   \proved{15116}  \\
+            \hline
+            wlp-20        &     \sol{21949}     &   \sol{19507}     &   \proved{10202}  \\
+            \hline
+            wlp-30        &     \sol{37648}     &   \sol{40383}     &   \proved{12257}  \\
+            \hline
+            wlp-50        &     \sol{57959}     &   \UNK            &   \sol{16517}     \\
+            \hline
+            wlp-100       &     \ERR            &   \UNK            &   \sol{23223}     \\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{table}
+
+\section{Assignment 5}
+
+For assignment 5 I wrote two models: results of this table were measured from \texttt{Assignment5.mzn}. \\
+\texttt{Assignment5\_Fast\_CoinBC.mzn} is a faster model for Coin-BC solver (10x faster on \texttt{wlp-100.dzn}).
+
+\begin{table}[H]
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            \textbf{Instance}&\textbf{Gecode 6.3.0}&\textbf{Chuffed 0.10.4}&\textbf{Coin-BC 2.10.5}  \\
+            \hline
+            wlp-1         &     \proved{1931}   &   \proved{1931}   &   \proved{1931}   \\
+            \hline
+            wlp-2         &     \proved{1891}   &   \proved{1891}   &   \proved{1891}   \\
+            \hline
+            wlp-3         &     \proved{4553}   &   \proved{4553}   &   \proved{4553}   \\
+            \hline
+            wlp-4         &     \proved{4366}   &   \proved{4366}   &   \proved{4366}   \\
+            \hline
+            wlp-5         &     \proved{3530}   &   \proved{3530}   &   \proved{3530}   \\
+            \hline
+            wlp-6         &     \proved{4108}   &   \proved{4108}   &   \proved{4108}   \\
+            \hline
+            wlp-7         &     \proved{4429}   &   \proved{4429}   &   \proved{4429}   \\
+            \hline
+            wlp-8         &     \proved{4961}   &   \proved{4961}   &   \proved{4961}   \\
+            \hline
+            wlp-9         &     \sol{8272}      &   \proved{8145}   &   \proved{8145}   \\
+            \hline
+            wlp-10        &     \sol{9149}     &   \proved{9070}   &   \proved{9070}   \\
+            \hline
+            wlp-12        &     \sol{5485}      &   \proved{5379}   &   \proved{5379}   \\
+            \hline
+            wlp-15        &     \sol{15544}     &   \opt{15116}     &   \proved{15116}  \\
+            \hline
+            wlp-20        &     \sol{10402}     &   \proved{10202}  &   \proved{10202}  \\
+            \hline
+            wlp-30        &     \sol{13343}     &   \sol{13280}     &   \proved{12257}  \\
+            \hline
+            wlp-50        &     \sol{17543}     &   \sol{17239}     &   \proved{15457}  \\
+            \hline
+            wlp-100       &     \sol{24295}     &   \sol{24295}     &   \proved{21302}  \\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{table}
+
+\end{document}

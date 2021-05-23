@@ -1,0 +1,101 @@
+\documentclass{article}
+\usepackage{float}
+
+\title{Lab Session n. 3: report}
+\author{Brian Riccardi \\ mat.130453 \\ riccardi.brian@spes.uniud.it}
+\date{}
+
+\newcommand{\UNK}{\texttt{==UNKNOWN==}}
+\newcommand{\ERR}{\texttt{===ERROR===}}
+\newcommand{\sol}[1]{#1}
+\newcommand{\opt}[1]{\textbf{#1}}
+\newcommand{\proved}[1]{\textbf{\underline{#1}}}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+In this report I will provide the results I achieved with complete enumeration algorithms.\\
+Since in assignment 3 I needed to modify the source-code, to be able to test both and to keep
+both implementations without duplicating the code I used a macro definition \texttt{ASSIGN3} which
+works like a light-switcher: to compile the source for assignment3, just uncomment the flag in the Makefile.\\
+I know it is the wrong choice for readability.
+
+\section{Technical aspects}
+The machine used has:
+
+\begin{description}
+    \item[CPU:] Intel i5-8250U @ 3.40 GHz
+    \item[RAM:] 8 GB
+    \item[Operating System:] Linux Fedora 33
+\end{description}
+\ \\
+Tests were done with 3 minutes runtime (command \texttt{timeout 180}).\\
+Sources are compiled through \texttt{make} with \texttt{C++17}.
+
+\section{Assignment 2}
+
+\begin{table}[H]
+    \begin{center}
+        \begin{tabular}{|c|c|c|}
+            \hline
+            \textbf{Instance}&\textbf{Enumeration result}  \\
+            \hline
+            wlp-1         &   \proved{1931} \\
+            \hline
+            wlp-2         &   \proved{1891} \\
+            \hline
+            wlp-3         &   \proved{4553} \\
+            \hline
+            wlp-4         &   \proved{4366} \\
+            \hline
+            wlp-5         &   \proved{3530} \\
+            \hline
+            wlp-6         &   \sol{4291}    \\
+            \hline
+            wlp-7         &   \sol{5453}    \\
+            \hline
+            wlp-8         &   \UNK          \\
+            \hline
+            wlp-9         &   \UNK          \\
+            \hline
+            wlp-10        &   \UNK          \\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{table}
+
+\section{Assignment 3}
+
+\begin{table}[H]
+    \begin{center}
+        \begin{tabular}{|c|c|c|}
+            \hline
+            \textbf{Instance}&\textbf{Enumeration enhanced result} & \textbf{Improvement \%} \\
+            \hline
+            wlp-1         &   \proved{1931} &   0   \\
+            \hline
+            wlp-2         &   \proved{1891} &   0   \\
+            \hline
+            wlp-3         &   \proved{4553} &   0   \\
+            \hline
+            wlp-4         &   \proved{4366} &   0   \\
+            \hline
+            wlp-5         &   \proved{3530} &   0   \\
+            \hline
+            wlp-6         &   \sol{4180}    &  2.6   \\
+            \hline
+            wlp-7         &   \sol{5453}    &   0   \\
+            \hline
+            wlp-8         &   \UNK          &   0   \\
+            \hline
+            wlp-9         &   \UNK          &   0   \\
+            \hline
+            wlp-10        &   \UNK          &   0   \\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{table}
+
+\end{document}

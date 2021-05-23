@@ -1,0 +1,123 @@
+\documentclass{article}
+\usepackage{float}
+
+\title{Lab Session n. 4: report}
+\author{Brian Riccardi \\ mat.130453 \\ riccardi.brian@spes.uniud.it}
+\date{}
+
+\newcommand{\UNK}{\texttt{==UNKNOWN==}}
+\newcommand{\ERR}{\texttt{===ERROR===}}
+\newcommand{\sol}[1]{#1}
+\newcommand{\opt}[1]{\textbf{#1}}
+\newcommand{\proved}[1]{\textbf{\underline{#1}}}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+In this report I will provide the results I achieved with complete backtracking algorithms.\\
+I also implemented a basic branch\&bound solution that produces slightly better results: as in
+the enumeration lab, to compile the BB version uncomment the flag in the Makefile.
+
+\section{Technical aspects}
+The machine used has:
+
+\begin{description}
+    \item[CPU:] Intel i5-8250U @ 3.40 GHz
+    \item[RAM:] 8 GB
+    \item[Operating System:] Linux Fedora 33
+\end{description}
+\ \\
+Tests were done with 3 minutes runtime (command \texttt{timeout 180}).\\
+Sources are compiled through \texttt{make} with \texttt{C++17}.
+
+\section{Assignment 2}
+
+\begin{table}[H]
+    \begin{center}
+        \begin{tabular}{|c|c|c|}
+            \hline
+            \textbf{Instance}&\textbf{Backtracking vanilla}  \\
+            \hline
+            wlp-1         &   \proved{1931} \\
+            \hline
+            wlp-2         &   \proved{1891} \\
+            \hline
+            wlp-3         &   \proved{4553} \\
+            \hline
+            wlp-4         &   \proved{4366} \\
+            \hline
+            wlp-5         &   \proved{3530} \\
+            \hline
+            wlp-6         &   \proved{4108} \\
+            \hline
+            wlp-7         &   \proved{4429} \\
+            \hline
+            wlp-8         &   \proved{4961} \\
+            \hline
+            wlp-9         &   \sol{9710}    \\
+            \hline
+            wlp-10        &   \sol{12050}   \\
+            \hline
+            wlp-12        &   \sol{9919}    \\
+            \hline
+            wlp-15        &   \sol{22398}   \\
+            \hline
+            wlp-20        &   \sol{23572}   \\
+            \hline
+            wlp-30        &   \sol{39938}   \\
+            \hline
+            wlp-50        &   \sol{61966}   \\
+            \hline
+            wlp-100       &   \sol{131135}  \\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{table}
+
+\section{Assignment Extra}
+
+\begin{table}[H]
+    \begin{center}
+        \begin{tabular}{|c|c|}
+            \hline
+            \textbf{Instance}&\textbf{Branch\&Bound}  \\
+            \hline
+            wlp-1         &   \proved{1931} \\
+            \hline
+            wlp-2         &   \proved{1891} \\
+            \hline
+            wlp-3         &   \proved{4553} \\
+            \hline
+            wlp-4         &   \proved{4366} \\
+            \hline
+            wlp-5         &   \proved{3530} \\
+            \hline
+            wlp-6         &   \proved{4108} \\
+            \hline
+            wlp-7         &   \proved{4429} \\
+            \hline
+            wlp-8         &   \proved{4961} \\
+            \hline
+            wlp-9         &   \proved{8145}    \\
+            \hline
+            wlp-10        &   \sol{11991}   \\
+            \hline
+            wlp-12        &   \sol{5561}    \\
+            \hline
+            wlp-15        &   \sol{21022}   \\
+            \hline
+            wlp-20        &   \sol{17918}   \\
+            \hline
+            wlp-30        &   \sol{34481}   \\
+            \hline
+            wlp-50        &   \sol{61605}   \\
+            \hline
+            wlp-100       &   \sol{130729}  \\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{table}
+
+\end{document}
